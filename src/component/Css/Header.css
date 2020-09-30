@@ -1,0 +1,11 @@
+.nav-item{
+    color:grey;
+    text-decoration: none;
+    margin:10px;
+
+}
+.nav-item:hover{
+   
+        text-decoration:none;
+      
+}

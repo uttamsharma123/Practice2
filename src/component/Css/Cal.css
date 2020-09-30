@@ -1,0 +1,47 @@
+.main{
+    border: 2px solid grey ;
+    max-width: 700px;
+    margin:auto;
+    display: flex;
+    height:90vh;
+    align-items:top;
+    justify-content: center;
+}
+.btnStyle{
+   
+    margin:10px;
+}
+.show-operator{
+    width:200px;
+    height:350px;
+    border:1px solid red;
+    text-align: center;
+    padding: 0%;
+}
+.operator{
+    margin:5px;
+    background-color: #ebd4d4;
+    color: #6a2c70;
+    font: 1.6em sans-serif;
+   
+}
+.numbers{
+    margin:5px;
+    background-color: #ebd4d4;
+    color: #6a2c70;
+    font: 2em sans-serif;
+}
+.numbers:hover{
+    background-color: honeydew;
+}
+.operator:hover{
+    background-color: honeydew;
+}
+.input{
+    padding:20px;
+    width:200px;
+    margin:10px 0 10px;
+    font-size:2rem;
+    direction: rtl;
+      unicode-bidi: bidi-override;
+}
