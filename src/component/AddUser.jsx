@@ -5,105 +5,55 @@ import { numbers } from "./Calculator";
 import "./Css/Cal.css";
 
 function AddUser() {
-    var combine="";
+    
+    var combine = "";
+
+    function reverseStr(str)
+    {
+        var arr=str.split("");
+        var revArr=arr.reverse();
+        var joinStr=revArr.join("");
+        return joinStr;
+    }
     const [oprator, setoperator] = useState("");
     function handleClick(event) {
         const { value, name } = event.target;
+
+
         
-       
-        
-        if (name === "add") {
+            if(name!="equal" && name!="delete" )
+            {
+                setoperator(p=>{
+                 return value.concat(p)
+                })
+            }
+            if(name==="equal")
+            {
+                var sum=0;
+                var arr;
+                setoperator(preValue=>{
+                    arr=preValue.split("+");
+                    for(var i=0;i<arr.length;i++)
+                    {
+                        sum=sum+parseInt(arr[i]);
+                    }
+                    return reverseStr(sum.toString());
 
-           setoperator(p=>{
-               return "+".concat(p);
-            });
 
-        }
-        else if (name === "sub") {
-            setoperator(p=>{
-                return "-".concat(p);
-             });
 
-        }
-        else if (name === "mul") {
-            setoperator(p=>{
-                return "*".concat(p);
-             });
-
-        }
-        else if (name === "div") {
-            setoperator(p=>{
-                return "/".concat(p);
-             });
-        }
-        else if (name === "one") {
-            setoperator(p=>{
-                return "1".concat(p);
-             });
-
-        }
-        else if (name === "two") {
-            setoperator(p=>{
-                return "2".concat(p);
-             });
-
-        }
-        else if (name === "three") {
-            setoperator(p=>{
-                return "3".concat(p);
-             });
-
-        }
-        else if (name === "four") {
-            setoperator(p=>{
-                return "4".concat(p);
-             });
-
-        }
-        else if (name === "five") {
-            setoperator(p=>{
-                return "5".concat(p);
-             });
-
-        }
-        else if (name === "six") {
-            setoperator(p=>{
-                return "6".concat(p);
-             });
-
-        }
-        else if (name === "seven") {
-            setoperator(p=>{
-                return "7".concat(p);
-             });
-
-        }
-        else if (name === "eight") {
-            setoperator(p=>{
-                return "8".concat(p);
-             });
-
-        }
-        else if (name === "nine") {
-            setoperator(p=>{
-                return "9".concat(p);
-             });
-
-        }
-        else if(name==="zero")
-        {
-            setoperator(p=>{
-                return "0".concat(p);
-             });
-        }
-
-    }
+                });
+            }
+            if(name==="delete")
+            {
+                setoperator("");
+            }
+      }
 
     return <div className="main">
         <div >
 
 
-            <input class="input" value={oprator} name="cal" readOnly/>
+            <input class="input" value={oprator} name="cal" readOnly />
             <div className="show-operator">
                 {Calculator.map((cal) => {
                     return <button className="btn operator" name={cal.name}
@@ -111,16 +61,16 @@ function AddUser() {
                         onClick={handleClick} >
                         {cal.value}
                     </button>
-                    
+
                 })}
-              <br/>
+                <br />
 
                 {numbers.map(n => {
-                    return   <button name={n.name} 
-                    value={n.value}
-                    onClick={handleClick}
-                    className="btn numbers">
-                    {n.value}
+                    return <button name={n.name}
+                        value={n.value}
+                        onClick={handleClick}
+                        className="btn numbers">
+                        {n.value}
                     </button>
                 })}
 
